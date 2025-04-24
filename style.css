@@ -1,0 +1,514 @@
+/* --- Base Styles & Resets --- */
+:root {
+    --primary-color: #6a11cb; /* Example Purple */
+    --secondary-color: #2575fc; /* Example Blue */
+    --dark-color: #1a1a1a;
+    --light-color: #f4f4f4;
+    --text-color: #333;
+    --white-color: #ffffff;
+    --success-color: #28a745;
+    --error-color: #dc3545;
+    --font-family: "Glegoo", serif;
+    --title-font: "Gloock", serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px; /* Base font size */
+}
+
+body {
+    font-family: var(--font-family);
+    line-height: 1.7;
+    color: var(--text-color);
+    background-color: var(--white-color);
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+h1, h2, h3 {
+    line-height: 1.3;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    color: var(--dark-color);
+}
+
+h1 { font-size: 2.8rem; font-weight: 700; }
+h2 { font-size: 2.2rem; text-align: center; margin-bottom: 3rem; }
+h3 { font-size: 1.5rem; }
+
+p {
+    margin-bottom: 1rem;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--secondary-color);
+}
+
+img {
+    max-width: 30vh;
+    height: auto;
+    display: block;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Screen Reader Only */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* --- Section Styling --- */
+.scroll-section {
+    padding: 80px 0;
+    min-height: 60vh; /* Ensure sections have enough height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* --- Hero Section --- */
+#hero {
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    color: var(--white-color);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative; /* For potential pseudo-elements or absolute positioning */
+}
+
+#hero .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+#hero .hero-content {
+    flex: 1; /* Takes up available space */
+    text-align: left;
+    max-width: 600px; /* Limit text width */
+}
+
+#hero .hero-image {
+    flex-basis: 40%; /* Define base size */
+    max-width: 400px; /* Max width for the image */
+    margin: 20px auto 0; /* Center image when wrapped */
+}
+#hero .hero-image img {
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+
+#hero h1 {
+    color: var(--white-color);
+    margin-bottom: 1rem;
+}
+
+#hero p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    font-weight: 300;
+}
+
+.logo-title {
+    font-family: var(--title-font);
+    font-size: 2.5rem;
+    color: var(--white-color);
+    margin-bottom: 1rem;
+    letter-spacing: 1.5px;
+}
+
+#preregister-form {
+    display: flex;
+    flex-wrap: wrap; /* Allow button to wrap below input */
+    gap: 10px;
+    margin-bottom: 1rem;
+    max-width: 500px;
+}
+
+#preregister-form input[type="email"] {
+    flex-grow: 1; /* Take remaining space */
+    padding: 15px 20px;
+    border: 1px solid #ccc;
+    border-radius: 50px; /* Pill shape */
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+#preregister-form input[type="email"]:focus {
+    border-color: var(--secondary-color);
+}
+
+#preregister-form button {
+    padding: 15px 30px;
+    background-color: var(--white-color);
+    color: var(--primary-color);
+    border: none;
+    border-radius: 50px; /* Pill shape */
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    white-space: nowrap; /* Prevent button text wrapping */
+}
+
+#preregister-form button:hover {
+    background-color: var(--light-color);
+    color: var(--secondary-color);
+}
+
+#form-message {
+    margin-top: 1rem;
+    font-weight: 600;
+    min-height: 1.2em; /* Reserve space */
+}
+#form-message.success { color: var(--success-color); }
+#form-message.error { color: var(--error-color); }
+
+#hero .availability {
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    opacity: 0.8;
+}
+
+/* --- Features Section --- */
+#features {
+    background-color: var(--light-color);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    text-align: center;
+}
+
+.feature-item {
+    background-color: var(--white-color);
+    padding: 30px 25px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.feature-item i {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.feature-item h3 {
+    margin-bottom: 0.5rem;
+}
+
+/* --- Sneak Peek Section --- */
+#sneak-peek {
+    background-color: var(--white-color);
+    text-align: center;
+}
+#sneak-peek p {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+.sneak-peek-img {
+    margin-top: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    max-width: 80%; /* Adjust as needed */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- How It Works Section --- */
+#how-it-works {
+    background-color: var(--light-color);
+}
+
+.steps-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 30px;
+    text-align: center;
+    flex-wrap: wrap;
+}
+
+.step-item {
+    flex: 1;
+    min-width: 220px; /* Ensure items don't get too narrow */
+    max-width: 300px;
+}
+
+.step-item i {
+    font-size: 3rem;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+}
+
+.step-item h3 {
+    margin-bottom: 0.5rem;
+}
+
+/* --- CTA Section --- */
+#cta {
+    background: linear-gradient(45deg, var(--secondary-color), var(--primary-color));
+    color: var(--white-color);
+    text-align: center;
+}
+
+#cta h2 {
+    color: var(--white-color);
+}
+
+#cta p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--white-color);
+    color: var(--primary-color);
+    padding: 15px 40px;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: var(--light-color);
+    color: var(--secondary-color);
+    transform: translateY(-3px);
+}
+
+/* --- Footer --- */
+footer {
+    background-color: var(--dark-color);
+    color: var(--light-color);
+    text-align: center;
+    padding: 40px 0;
+}
+
+footer .social-links {
+    margin-bottom: 1rem;
+}
+
+footer .social-links a {
+    color: var(--light-color);
+    font-size: 1.5rem;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+footer .social-links a:hover {
+    color: var(--secondary-color);
+}
+
+footer p {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+footer a {
+    color: var(--light-color);
+    opacity: 0.8;
+}
+footer a:hover {
+    opacity: 1;
+    color: var(--secondary-color);
+}
+
+
+/* --- Scroll Animation Classes --- */
+.animate-on-scroll {
+    opacity: 0;
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in {
+    opacity: 0;
+}
+
+.fade-in-up {
+    transform: translateY(50px);
+    opacity: 0;
+}
+
+.fade-in-left {
+    transform: translateX(-50px);
+    opacity: 0;
+}
+
+.fade-in-right {
+    transform: translateX(50px);
+    opacity: 0;
+}
+
+.zoom-in {
+    transform: scale(0.9);
+    opacity: 0;
+}
+
+/* The state when the element becomes visible */
+.animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+}
+
+/* Delay helper classes */
+.delay-1 { transition-delay: 0.2s; }
+.delay-2 { transition-delay: 0.4s; }
+.delay-3 { transition-delay: 0.6s; }
+
+
+/* --- Responsive Design --- */
+
+/* Tablets and smaller desktops */
+@media (max-width: 992px) {
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 2rem; }
+    .container { max-width: 90%; }
+
+    #hero .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    #hero .hero-content {
+        text-align: center;
+        max-width: 100%;
+        order: 2; /* Content below image */
+    }
+    .logo-title {
+        margin: 0 auto 1rem;
+        font-size: 2.2rem;
+    }
+     #hero .hero-image {
+        
+        margin-bottom: 2rem;
+        flex-basis: auto; /* Reset basis */
+        max-width: 350px;
+    }
+     #preregister-form {
+        justify-content: center;
+    }
+}
+
+/* Mobile devices */
+@media (max-width: 768px) {
+    html { font-size: 15px; } /* Slightly smaller base font */
+    h1 { font-size: 2.2rem; }
+    h2 { font-size: 1.8rem; margin-bottom: 2rem; }
+    h3 { font-size: 1.3rem; }
+
+    .scroll-section {
+        padding: 60px 0;
+    }
+
+    #hero .container {
+        padding: 0 15px;
+    }
+
+    #hero .hero-content {
+        order: 1 !important;
+    }
+    
+    .hero-images-wrapper {
+        order: 2 !important;
+        margin-top: 2rem; /* Add space between text and image */
+    }
+
+    /* Adjust image size */
+    .hero-images-wrapper .hero-image:last-child {
+        max-width: 60% !important;
+        margin: 0 auto;
+    }
+
+    /* Ensure availability text stays above image */
+    #hero .availability {
+        display: block;
+        margin-top: 1.5rem;
+        margin-bottom: 0;
+    }
+
+
+    #preregister-form {
+        flex-direction: column; /* Stack input and button */
+        align-items: stretch; /* Make input/button full width */
+    }
+     #preregister-form input[type="email"],
+    #preregister-form button {
+        width: 100%;
+    }
+
+
+    .features-grid {
+        grid-template-columns: 1fr; /* Stack features */
+    }
+
+    .steps-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .step-item {
+        margin-bottom: 20px;
+    }
+     .sneak-peek-img {
+        max-width: 95%;
+    }
+}
+
+@media (max-width: 480px) {
+    html { font-size: 14px; }
+    h1 { font-size: 2rem; }
+
+    .logo-title {
+        font-size: 2rem;
+        letter-spacing: 1px;
+    }
+
+     #hero p {
+        font-size: 1rem;
+    }
+     #preregister-form input[type="email"],
+    #preregister-form button {
+        padding: 12px 20px;
+        font-size: 0.95rem;
+    }
+}
